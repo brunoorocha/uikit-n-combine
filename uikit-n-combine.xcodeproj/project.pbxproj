@@ -15,6 +15,7 @@
 		A3CB61E222B9247E00880BDC /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB61E122B9247E00880BDC /* Service.swift */; };
 		A3CB61E422B924C200880BDC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB61E322B924C200880BDC /* Result.swift */; };
 		A3CB61E722B924FA00880BDC /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB61E622B924FA00880BDC /* SearchResult.swift */; };
+		A3CB61E922B9279E00880BDC /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CB61E822B9279E00880BDC /* SearchResultViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A3CB61E122B9247E00880BDC /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A3CB61E322B924C200880BDC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A3CB61E622B924FA00880BDC /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		A3CB61E822B9279E00880BDC /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		A3CB61DF22B9225700880BDC /* view-model */ = {
 			isa = PBXGroup;
 			children = (
+				A3CB61E822B9279E00880BDC /* SearchResultViewModel.swift */,
 			);
 			path = "view-model";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CB61E922B9279E00880BDC /* SearchResultViewModel.swift in Sources */,
 				A348BE9A22B91872007C2CA5 /* ViewController.swift in Sources */,
 				A3CB61E422B924C200880BDC /* Result.swift in Sources */,
 				A3CB61E222B9247E00880BDC /* Service.swift in Sources */,
