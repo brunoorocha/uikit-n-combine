@@ -10,6 +10,13 @@ import UIKit
 
 class AppsViewCell: UICollectionViewCell {
     
+    var result: Result! {
+        didSet {
+            nameGroup.text = result.trackName
+            descriptionGroup.text = result.primaryGenreName
+        }
+    }
+    
     lazy var imageGroup = UIImageView(imageName: "group")
     lazy var blurView = UIView(with: 0.6)
     lazy var nameGroup = UILabel(text: "Globo Play", textSize: 16, textColor: .white)
