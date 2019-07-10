@@ -6,34 +6,28 @@
 //  Copyright © 2019 Bruno Rocha. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 import Combine
 
-class SearchResultViewModel: BindableObject {
-    var didChange = PassthroughSubject<SearchResultViewModel, Never>()
+class SearchResultViewModel: Publisher {
+    typealias Output = Void
+    typealias Failure = Never
     
-    var results: [Result] = [] {
-        didSet {
-            didChange.send(self)
-        }
-    }
-    
-    var searchTerm = "Facebook" {
-        didSet {
-            load()
-        }
-    }
-    
-    func load() {
+    func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
         Service.shared.fetchApps(searchTerm: searchTerm) { (results, error) in
             if let error = error {
-                print(error)
+                Swift.print(error)
             }
             
             DispatchQueue.main.async {
+                _ = subscriber.receive(())
+                subscriber.receive(completion: .finished)
                 self.results = results
             }
-         
         }
     }
+
+    var results: [Result] = []
+    
+    var searchTerm = "Facebook"
 }

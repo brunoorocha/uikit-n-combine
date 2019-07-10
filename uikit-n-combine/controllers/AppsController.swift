@@ -10,6 +10,18 @@ import UIKit
 import SwiftUI
 import Combine
 
+struct MyPublisher: Publisher {
+    typealias Output = String
+    typealias Failure = Never
+    
+    func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            _ = subscriber.receive("Deu bom, cabrón")
+            subscriber.receive(completion: .finished)
+        }
+    }
+}
+
 class AppsController: BaseCollectionController {
 
     fileprivate let cellId = "cellId"
@@ -21,8 +33,10 @@ class AppsController: BaseCollectionController {
         setupCollection()
         navigationItem.title = "Today"
         navigationController?.navigationBar.prefersLargeTitles = true
-        searchViewModel.load()
         
+        _ = searchViewModel.sink {
+            self.collectionView.reloadData()
+        }
     }
 }
 
